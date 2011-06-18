@@ -1,12 +1,12 @@
 Summary:	Stuttgart Finite State Transducer Tools
 Summary(pl.UTF-8):	Stuttgart Finite State Transducer Tools - narzędzia do automatów skończonych
 Name:		SFST
-Version:	1.4.2
+Version:	1.4.3
 Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	ftp://ftp.ims.uni-stuttgart.de/pub/corpora/SFST/%{name}-%{version}.tar.gz
-# Source0-md5:	61fad719a52c1bb5558a255d5a30505a
+# Source0-md5:	1241a959640981230cce6000ac60e449
 URL:		http://www.ims.uni-stuttgart.de/projekte/gramotron/SOFTWARE/SFST.html
 BuildRequires:	bison
 BuildRequires:	flex
