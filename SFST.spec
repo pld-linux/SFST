@@ -7,6 +7,7 @@ License:	GPL v2+
 Group:		Development/Tools
 Source0:	ftp://ftp.ims.uni-stuttgart.de/pub/corpora/SFST/%{name}-%{version}.tar.gz
 # Source0-md5:	574f124731ab1b87696fdd9b8a6e4a7d
+Patch0:		build.patch
 URL:		http://www.ims.uni-stuttgart.de/projekte/gramotron/SOFTWARE/SFST.html
 BuildRequires:	bison
 BuildRequires:	flex
@@ -54,6 +55,7 @@ Pliki nagłówkowe biblioteki SFST.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 sed -i -e '/^	strip/d' src/Makefile
 
