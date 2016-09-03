@@ -1,13 +1,13 @@
 Summary:	Stuttgart Finite State Transducer Tools
 Summary(pl.UTF-8):	Stuttgart Finite State Transducer Tools - narzędzia do automatów skończonych
 Name:		SFST
-Version:	1.4.6g
-Release:	2
+Version:	1.4.7c
+Release:	1
 License:	GPL v2+
 Group:		Development/Tools
-Source0:	ftp://ftp.ims.uni-stuttgart.de/pub/corpora/SFST/%{name}-%{version}.tar.gz
-# Source0-md5:	574f124731ab1b87696fdd9b8a6e4a7d
-Patch0:		build.patch
+#Source0Download: http://www.cis.uni-muenchen.de/~schmid/tools/SFST/
+Source0:	http://www.cis.uni-muenchen.de/~schmid/tools/SFST/data/%{name}-%{version}.tar.gz
+# Source0-md5:	34d220f3c7216094653ddc82924b00e2
 URL:		http://www.ims.uni-stuttgart.de/projekte/gramotron/SOFTWARE/SFST.html
 BuildRequires:	bison
 BuildRequires:	flex
@@ -55,7 +55,6 @@ Pliki nagłówkowe biblioteki SFST.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
 
 sed -i -e '/^	strip/d' src/Makefile
 
@@ -77,12 +76,10 @@ sed -i -e '/^	strip/d' src/Makefile
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} -C src install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	PREFIX=%{_prefix}/
+	DESTDIR=$RPM_BUILD_ROOT%{_prefix}/
 
 %{__make} -C src maninstall \
-	DESTDIR=$RPM_BUILD_ROOT \
-	PREFIX=%{_datadir}/
+	DESTDIR=$RPM_BUILD_ROOT%{_datadir}/
 
 install -D src/libsfst.so $RPM_BUILD_ROOT%{_libdir}/libsfst.so
 
